@@ -6,7 +6,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:launchMode="singleTop"
+            android:launchMode="singleTask"
             android:theme="@style/LaunchTheme"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:hardwareAccelerated="true"
@@ -32,7 +32,9 @@
                 <!-- Add optional android:host to distinguish your app
                       from others in case of conflicting scheme name -->
                 <!--                <data android:scheme="my.test.app" android:host="open.my.app" />-->
-                <data android:scheme="my.test.app" />
+<!--                <data android:scheme="https" android:scheme="my.test.app" android:pathPrefix="/callback"/>-->
+                <data android:scheme="sample" android:host="open.my.app" />
+
                 <!-- <data android:scheme="sample" /> -->
             </intent-filter>
         </activity>
