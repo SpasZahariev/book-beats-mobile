@@ -133,18 +133,19 @@ class _MyHomePageState extends State<MyHomePage> {
     print('Step 7: Add tracks to playlist!');
     print("the track ids look like $trackIds");
     var trackUris = trackIds.map((id) => 'spotify:track:$id').toList();
+    String encodedTrackUris = jsonEncode(trackUris);
 
     print("track uirs look like $trackUris");
     var trackUriJsonData = '''
     {
-      "uris": $trackUris
+      "uris": $encodedTrackUris
     }
     ''';
 
     var addToPlaylistUrl =
         'https://api.spotify.com/v1/playlists/$playlistId/tracks';
     await oauth2Helper.post(addToPlaylistUrl,
-        body: jsonEncode(trackUriJsonData));
+        body: trackUriJsonData);
 
     print(
         "ALL DONE! Check your spotify afccount for the awesome playlist you just made");
@@ -168,6 +169,7 @@ class _MyHomePageState extends State<MyHomePage> {
         // If tracks are found, add the first track's ID to the list
         String? trackId = decodedTracks[0]['id'] as String?;
         if (trackId != null) {
+          print('adding TrackId to list: $trackId');
           trackIds.add(trackId);
         }
       }
