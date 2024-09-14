@@ -7,19 +7,9 @@ class Prompts {
       "Your customers should stay focused on imersing themselves in their favourite book.";
 
   static String generatePrompt(String vibe) {
-    String jsonExample = '''
-            {
-                "items": [
-                    {
-                        "song": SONG_NAME,
-                        "artist": SONG_ARTIST
-                    }
-                ]
-            }
-            ''';
     return "Task: Suggest 5 songs that will fit well with this book or atmosphere - $vibe "
         "Context: The results should be a json list of 5 songs and their artists. It should be easy to parse in python. Do not include any other text."
-        "Output: $jsonExample"
+        "Output: { \"items\": [ { \"song\": SONG_NAME, \"artist\": SONG_ARTIST } ] }"
         "Evaluation Criteria: The songs are meant to help the customer imerse themselves in the book they are reading and should not be too distracting. The 5 songs should also transition smoothly from one to the next";
   }
 }
