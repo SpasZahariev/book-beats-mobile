@@ -173,11 +173,17 @@ class DoEverythingCommand {
       'Authorization': 'Bearer $openAiKey',
     };
 
-    String body = jsonEncode({
+/*    String body = jsonEncode({
       'model': 'gpt-4o-mini',
       'messages': [
         {'role': 'system', 'content': Prompts.systemMessage},
         {'role': 'user', 'content': Prompts.generatePrompt(vibe)}
+      ]
+    });*/
+    String body = jsonEncode({
+      'model': 'gpt-4o-mini',
+      'messages': [
+        {'role': 'user', 'content': Prompts.generateGeneralPurposePrompt(vibe)}
       ]
     });
 
