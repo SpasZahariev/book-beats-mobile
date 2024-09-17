@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:book_beats_flutter/ProggressState.dart';
 import 'package:book_beats_flutter/prompts.dart';
 import 'package:book_beats_flutter/success_banner.dart';
 import 'package:flutter/material.dart';
@@ -49,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
       TextEditingController(text: 'SpasFlutterPlaylist');
   final TextEditingController vibeController =
       TextEditingController(text: 'Relaxing classical music');
-  bool _isPlaylistComplete = false;
+  ProgressState currentState = ProgressState.initialState;
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            if (!_isPlaylistComplete) ...[
+            if (currentState == ProgressState.initialState) ...[
               Text(
                 'Choose your playlist name:',
                 style: Theme.of(context).textTheme.headlineSmall,
@@ -86,8 +87,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   controller: vibeController,
                 ),
               ),
-            ] else if (_isPlaylistComplete)
-              ...[
+            ] else if (currentState == ProgressState.loadingState)
+              Center(child: CircularProgressIndicator())
+            else if (currentState == ProgressState.completedState) ...[
                 const SuccessBanner(),
               ]
           ],
@@ -96,10 +98,12 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
           final command = DoEverythingCommand();
-          await command.doEverything(
-              playlistNameController.text, vibeController.text);
           setState(() {
-            _isPlaylistComplete = true;
+            currentState = ProgressState.loadingState;
+          });
+          await command.doEverything(playlistNameController.text, vibeController.text);
+          setState(() {
+            currentState = ProgressState.completedState;
           });
         },
         tooltip: 'Increment',

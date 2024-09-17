@@ -10,7 +10,7 @@ class SuccessBanner extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(20.0),
       decoration: BoxDecoration(
-        color: Colors.green,
+        color: Colors.blueGrey,
         borderRadius: BorderRadius.circular(15.0),
         boxShadow: [
           BoxShadow(
