@@ -6,18 +6,16 @@
 
 A mobile app that turns your vibe, mood, or description into a **real Spotify playlist** — created directly in your account with AI-curated tracks.
 
-## Screenshots
+## Images
 
 <div align="center">
   <table>
     <tr>
-      <td align="center">
-        <img src="images/book-beats.png" alt="Main screen - enter your vibe" width="250"/>
+      <td align="center" style="width: 55%;">
+        <img src="images/book-beats.png" alt="Main screen - enter your vibe" width="350"/>
         <br/><em>Main screen — describe your vibe</em>
       </td>
-    </tr>
-    <tr>
-      <td align="center">
+      <td align="center" style="width: 45%;">
         <img src="images/generated-playlist.png" alt="Generated playlist result" width="250"/>
         <br/><em>Your AI-generated playlist in Spotify</em>
       </td>
