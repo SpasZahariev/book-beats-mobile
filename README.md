@@ -11,11 +11,13 @@ A mobile app that turns your vibe, mood, or description into a **real Spotify pl
 <div align="center">
   <table>
     <tr>
-      <td align="center" style="width: 55%;">
-        <img src="images/book-beats.png" alt="Main screen - enter your vibe" width="350"/>
+      <td align="center">
+        <img src="images/book-beats.png" alt="Main screen - enter your vibe" width="100%"/>
         <br/><em>Main screen — describe your vibe</em>
       </td>
-      <td align="center" style="width: 45%;">
+    </tr>
+    <tr>
+      <td align="center">
         <img src="images/generated-playlist.png" alt="Generated playlist result" width="250"/>
         <br/><em>Your AI-generated playlist in Spotify</em>
       </td>
